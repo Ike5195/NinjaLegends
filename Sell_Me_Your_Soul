@@ -1,1 +1,13 @@
+getgenv().seller = true;
 
+while wait() do
+	if getgenv().seller == true then
+		function teleportTO(placeCFrame)
+			local plyr = game.Players.LocalPlayer;
+			if plyr.Character then
+				plyr.Character.HumanoidRootPart.CFrame = placeCFrame;
+			end
+		end
+		teleportTO(game:GetService("Workspace").sellTeleportPart.CFrame)
+	end
+end
