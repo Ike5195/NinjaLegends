@@ -1,0 +1,105 @@
+--Window
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Ike", "Ocean")
+
+
+
+
+--Auto farm
+local Main = Window:NewTab("AutoFarm")
+local MainSection = Main:NewSection("AutoFarm")
+
+
+--Autofarm Sword Swing
+MainSection:NewToggle("Sword AutoFarm", "Hold out your sword to auto swing", function(state)
+    if state then
+        getgenv().farmer = true;
+
+while wait() do
+	if getgenv().farmer == true then
+		game.Players.LocalPlayer.ninjaEvent:FireServer("swingKatana")
+	end
+end
+    else
+        getgenv().farmer = false;
+    end
+end)
+
+
+--Autosell
+MainSection:NewToggle("Autosell", "Auto sells your coins, a bit laggy", function(state)
+    if state then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Ike5195/Ike./main/Sell_Me_Your_Soul'))()
+    else
+        getgenv().seller = false;
+    end
+end)
+
+--Auto Rankup
+MainSection:NewToggle("Auto Rank", "Auto Ranks up, kinda slow", function(state)
+    if state then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Ike5195/Ike./main/RankMeUP'))()
+    else
+        getgenv().ranker = false;
+    end
+end)
+
+--Auto Sword Buyer
+MainSection:NewToggle("Auto Sword Buyer", "Buys the best sword you can afford.", function(state)
+    if state then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Ike5195/Ike./main/BuyMeASwordAutomatically'))()
+    else
+        getgenv().AutoSwordBuyer = false;
+    end
+end)
+
+--Auto Belt Buyer
+MainSection:NewToggle("Auto Belt Buyer", "Buys the best belt you can afford.", function(state)
+    if state then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Ike5195/Ike./main/BeltWhippa'))()
+    else
+        getgenv().AutoBeltBuyer = false;
+    end
+end)
+
+--Hoop Autofarm
+MainSection:NewToggle("Hoop Autofarm", "Auto Collects Hoops", function(state)
+    if state then
+        getgenv().hoopsauto = true;
+
+while wait() do
+	if getgenv().hoopsauto == true then
+		game.ReplicatedStorage.rEvents.hoopEvent:FireServer("useHoop", Workspace.Hoops.Hoop)
+	end
+end
+    else
+        getgenv().hoopsauto = false;
+    end
+end)
+
+--x35 Sell
+MainSection:NewToggle("x35 Auto Sell", "Auto Sells but with 35x multiplier, a bit slower.", function(state)
+    if state then
+        getgenv().bestseller = true;
+
+while wait() do
+	if getgenv().bestseller == true then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(77.0466309, 91242.5312, 123.681641, 1.2755394e-05, 0.965938866, 0.258770198, -0.99999994, 1.2755394e-05, 1.66893005e-06, -1.66893005e-06, -0.258770198, 0.965938926)
+	end
+end
+    else
+        getgenv().bestseller = false;
+    end
+end)
+
+--Teleport Stuff
+local Teleport = Window:NewTab("Teleport")
+local TPSection = Teleport:NewSection("Teleports")
+
+TPSection:NewButton("Unlock All Islands", "Almost All", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Ike5195/Ike./main/UnlockAllIslands'))()
+end)
+
+TPSection:NewButton("Pet Cloning Alter", "Pet Duping Area", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4615.9707, 127.738396, 1446.01294, 1.54972076e-06, -0.422563195, -0.906333447, -1, -1.54972076e-06, -9.83476639e-07, -9.83476639e-07, 0.906333447, -0.422563195)
+end)
